@@ -10,8 +10,9 @@ namespace CourseDemoProject.Business.Abstracts
     public interface IInstructorService
     {
         List<Instructor> GetAll();
-        void Add(Instructor ınstructor);
-        void Update(int id);
-        void Delete(Instructor ınstructor);
+        void Add(Instructor instructor);
+        void Update(Instructor instructor);
+        void Delete(Instructor instructor);
+        Instructor GetById(int id);
     }
 }

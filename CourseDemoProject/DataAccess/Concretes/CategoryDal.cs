@@ -10,10 +10,11 @@ namespace CourseDemoProject.DataAccess.Concretes
 {
     public class CategoryDal : ICategoryDal
     {
-        private List<Category> _categories;
+        private List<Category> _categories=new List<Category>();
         public CategoryDal() 
         { 
-            Category category = new Category() {CategoryId=1,Name="Programlama" };
+            Category category = new Category() {CategoryId=1, Name="Programlama" };
+            _categories.Add(category);
         }
         public void Add(Category category)
         {
@@ -30,9 +31,26 @@ namespace CourseDemoProject.DataAccess.Concretes
             return _categories;
         }
 
-        public void Update(int id)
+        public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            foreach (var category in _categories)
+            {
+                if (category.CategoryId==id)
+                {
+                    return category;
+                }
+
+
+            }
+            return new Category();
+        }
+
+
+        public void Update(Category category)
+        {
+            Category updatedCategory= new Category();
+            updatedCategory.CategoryId = category.CategoryId;
+            updatedCategory.Name = category.Name;
         }
     }
 }

@@ -32,9 +32,14 @@ namespace CourseDemoProject.Business.Concretes
             return _categoryDal.GetAll();
         }
 
-        public void Update(int id)
+        public Category GetById(int id)
         {
-            _categoryDal.Update(id);
+            return _categoryDal.GetById(id);
+        }
+
+        public void Update(Category category)
+        {
+            _categoryDal.Update(category);
         }
     }
 }

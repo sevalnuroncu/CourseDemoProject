@@ -32,9 +32,14 @@ namespace CourseDemoProject.Business.Concretes
             return _instructorDal.GetAll();
         }
 
-        public void Update(int id)
+        public Instructor GetById(int id)
         {
-            _instructorDal.Update(id);
+            return _instructorDal.GetById(id);
+        }
+
+        public void Update(Instructor instructor)
+        {
+            _instructorDal.Update(instructor);
         }
     }
 }

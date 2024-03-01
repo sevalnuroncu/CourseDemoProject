@@ -11,7 +11,8 @@ namespace CourseDemoProject.Business.Abstracts
     {
         List<Category> GetAll();
         void Add(Category category);
-        void Update(int id);
+        void Update(Category category);
         void Delete(Category category);
+        Category GetById(int id);
     }
 }

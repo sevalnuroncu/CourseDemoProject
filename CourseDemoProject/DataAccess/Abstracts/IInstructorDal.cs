@@ -11,7 +11,9 @@ namespace CourseDemoProject.DataAccess.Abstracts
     {
         List<Instructor> GetAll();
         void Add(Instructor ınstructor);
-        void Update(int id);
+        void Update(Instructor instructor);
         void Delete(Instructor ınstructor);
+        Instructor GetById(int id);
+
     }
 }

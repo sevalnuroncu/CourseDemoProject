@@ -39,20 +39,29 @@ namespace CourseDemoProject.DataAccess.Concretes
             return _courses;
         }
 
+        public Course GetById(int id)
+        {
+            foreach (var course in _courses)
+            {
+                if (course.Id==id)
+                {
+                    return course;
+                }
+            }
+            return new Course();
+        }
+
         public void Update(Course course)
         {
             Course updatedCourse = new Course();
-            for (int i = 0; i < _courses.Count; i++)
-            {
-                if (_courses[i].Id == id)
-                {
-                    _courses[i] = updatedCourse;
-                }
-                else
-                {
-                    Console.WriteLine("Bu id numarasında kurs bulunmamaktadır!");
-                }
-            }
+            updatedCourse.Id = course.Id;
+            updatedCourse.Description = course.Description;
+            updatedCourse.Name = course.Name;
+            updatedCourse.CategoryId = course.CategoryId;
+            updatedCourse.IntructorId = course.IntructorId;
+           
+            
         }
+
     }
 }

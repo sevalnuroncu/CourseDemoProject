@@ -10,13 +10,15 @@ namespace CourseDemoProject.DataAccess.Concretes
 {
     public class InstructorDal : IInstructorDal
     {
-        private List<Instructor> _instructors;
+        private List<Instructor> _instructors=new List<Instructor>();
 
         public InstructorDal()
         {
 
             Instructor instructor1= new Instructor() { IntructorId=1,FistName="Engin",LastName="Demiroğ"};
             Instructor instructor2 = new Instructor() { IntructorId = 2, FistName = "Halit Enes", LastName = "Kalaycı" };
+            _instructors.Add(instructor1);
+            _instructors.Add(instructor2);
         }
         public void Add(Instructor instructor)
         {
@@ -33,9 +35,34 @@ namespace CourseDemoProject.DataAccess.Concretes
             return _instructors;
         }
 
-        public void Update(int id)
+        public Instructor GetById(int id)
         {
-            throw new NotImplementedException();
+            foreach (var instructor in _instructors)
+            {
+                if (instructor.IntructorId==id)
+                {
+                    return instructor;
+                }
+                else
+                {
+                    Console.WriteLine("Eleman bulunamadı");
+                    
+                }
+
+
+            }
+            return new Instructor();
         }
+
+
+        public void Update(Instructor instructor)
+        {
+            Instructor updatedInstructor=new Instructor();
+            updatedInstructor.IntructorId = instructor.IntructorId;
+            updatedInstructor.FistName = instructor.FistName;
+            updatedInstructor.LastName= instructor.LastName;
+        }
+
+   
     }
 }
